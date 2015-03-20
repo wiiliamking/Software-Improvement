@@ -26,30 +26,20 @@ table {
 }
 
 .up {
-	background-color: rgba(22, 19, 185, 0.5);
+	background-color: rgba(26, 0, 255, 0.5);
+	background-image: url("ascend.png");
+	background-repeat: no-repeat;
+	background-position: right;
 }
-
-.up img {
-	display: inline;
-	opacity: 1;
-	float: right;
-	left: 180px;
-	/*position: absolute;*/
+.normal {
+	background-color: blue;
+	background-image: none;
 }
 
 .down {
-	background-color: rgba(22, 19, 185, 0.5);
+	background-color: rgba(26, 0, 255	, 0.5);
+	background-image: url("descend.png");
+	background-repeat: no-repeat;
+	background-position: right;
 }
 
-.down img{
-	display: inline;
-	opacity: 1;
-    float: right;
-	left: 180px;
-	/*position: absolute;*/
-}
-
-.normal img{
-    display: none;
-    /*position: absolute;*/
-}
