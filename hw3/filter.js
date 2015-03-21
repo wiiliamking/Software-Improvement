@@ -1,7 +1,7 @@
-function makeAllTablesFilterableAndSortable() {
+function makeAllTablesFilterable() {
 	var tables = document.getElementsByTagName("table");
 	for (var i = 0; i < tables.length; ++i) {
-		makeSortable(makeFilterable(tables[i]));
+	    makeFilterable(tables[i]);
 	}
 }
 
@@ -74,74 +74,4 @@ function recover(table) {
 	}
 }
 
-function makeSortable(table) {
-    var ths = table.tHead.rows[0].cells;
-    for (var i = 0; i < ths.length; ++i) {
-        ths[i].addEventListener("click", sortColumn);
-        ths[i].addEventListener("click", changeClass);
-    }
-    return table;
-}
-
-function changeClass(e) {
-    var tr = e.srcElement.parentNode,
-        index = e.srcElement.cellIndex;
-    for (var i = 0; i < tr.cells.length; ++i) {
-        if (i != index) {
-            tr.cells[i].className = "normal";
-        }
-    }
-    if (e.srcElement.className == "normal" || e.srcElement.className == "down") e.srcElement.className = "up";
-    else e.srcElement.className = "down";
-}
-
-function sortColumn(e) {
-    var th = e.srcElement;
-    var table = e.srcElement.parentNode.parentNode;
-    if (table.tagName != "table") table = table.parentNode;
-    var colNum = th.cellIndex;
-    if (e.srcElement.className == "normal" || e.srcElement.className == "down")
-        tableSort(table, colNum, 1);
-    else tableSort(table, colNum, 0);
-}
-
-function tableSort(table, colNum, mode) {
-    var rows = getRows(table);
-    var compare = getFunc(colNum, mode);
-    rows.sort(compare);
-    var index = 0;
-    for (var i = 0; i < table.rows.length; ++i) {
-        if (table.rows[i].cells[0].tagName == "TH") continue;
-        for (var j = 0; j < table.rows[i].cells.length; ++j) {
-            table.rows[i].cells[j].innerHTML = rows[index][j];
-        }
-        ++index;
-    }
-}
-
-function getFunc(colNum, mode) {
-    if (mode) {
-        return function(a, b) {
-            return (a[colNum] < b[colNum]);
-        }
-    } else {
-        return function(a, b) {
-            return (a[colNum] > b[colNum]);
-        }       
-    }
-}
-
-function getRows(table) {
-    var rows = [], obj = table.rows, index = 0;
-    for (var i = 0; i < obj.length; ++i) {
-        if (obj[i].cells[0].tagName == "TH") continue;
-        rows[index] = [];
-        for (var j = 0; j < obj[i].cells.length; ++j) {
-            rows[index].push(obj[i].cells[j].innerHTML);
-        }
-        ++index;
-    }
-    return rows;
-}
-
-window.onload = makeAllTablesFilterableAndSortable;
+window.onload = makeAllTablesFilterable;
