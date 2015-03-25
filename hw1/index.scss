@@ -1,3 +1,8 @@
+@mixin move {
+    left: 200px;
+    top: 300px;
+}
+
 body {
 	font-family: serif;
 	#at-plus-container {
@@ -6,6 +11,13 @@ body {
             position: relative;
             left: 45%;
             top: 400px;
+            display: inline-block;
+            #block {
+                height: 500px;
+                width: 500px;
+                display: inline-block;
+                position: relative;
+            }
             ul {
                 list-style: none;
                 li {
@@ -16,11 +28,12 @@ body {
             }    
 
             #info-bar {
+                @include move;
                 position: absolute;
-                left: -24%;
-                top: -26%;
+                display: inline-block;
                 background-position: center;
                 opacity: 0;
+                left: -20px;
                 .info {
                     border-radius: 50%;
                     background-color: grey;
@@ -69,7 +82,9 @@ body {
 
             #control-ring-container {
                 opacity: 0;
+                @include move;
                 position: absolute;
+                display: inline-block;
                 ul {
                     li {
                         background-color: grey;
@@ -102,10 +117,10 @@ body {
 
             .apb {
             	border-radius: 50%;
-                position: relative;
+                position: absolute;
                 left: 0%;
-                top: 10%;
-                display: block;
+                @include move;
+                display: inline-block;
             	.icon {
             		background-color: grey;
             		margin: 0 auto;
@@ -150,7 +165,7 @@ body {
 
 @-webkit-keyframes info-bar-animate {
     0% {display: block; opacity: 0;}
-    100% {top: -206%; opacity: 1;}
+    100% {top: 0px; opacity: 1; left: 180px;}
 }
 
 @-webkit-keyframes control-ring-container-animate {

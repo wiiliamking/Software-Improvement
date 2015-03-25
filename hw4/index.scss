@@ -3,8 +3,8 @@ body {
 	#at-plus-container {
         position: relative;
         #button {
-            position: absolute;
-            left: 45%;
+            position: relative;
+            left: 400px;
             top: 400px;
             ul {
                 list-style: none;
@@ -17,9 +17,9 @@ body {
 
             #info-bar {
                 position: absolute;
-                left: -24%;
-                top: -26%;
                 background-position: center;
+                left: 175px;
+                top: 180px;
                 opacity: 0;
                 .info {
                     border-radius: 50%;
@@ -70,15 +70,22 @@ body {
             #control-ring-container {
                 opacity: 0;
                 position: absolute;
+                top: 220px;
+                left: 220px;
                 ul {
                     li {
-                        background-color: grey;
+                        background-color: rgba(48, 63, 159, 1);
                         border-radius: 50%;
                         width: 50px;
                         height: 50px;
                         left: 40%;
                         top: 27%;
                         position: absolute;
+                        span {
+                            left: 20px;
+                            top: 15px;
+                            position: absolute;
+                        }
                         img {
                         	margin: 25% 20% 20% 25%;
                         }
@@ -102,15 +109,17 @@ body {
 
             .apb {
             	border-radius: 50%;
-                position: relative;
-                left: 0%;
-                top: 10%;
-                display: block;
+                position: absolute;
+                left: 200px;
+                top: 200px;
+                display: inline-block;
             	.icon {
             		background-color: grey;
-            		margin: 0 auto;
+            		background-position: center;
+                    display: inline-block;
             		height: 100px;
             		width: 100px;
+                    margin: auto;
             		border-radius: 50%;
             		img {
             			margin: 25% 20% 20% 20%;
@@ -119,10 +128,17 @@ body {
             }
 
         }
-        #button:hover {
+        #button:hover   {
+            height: 500px;
+            width: 500px;
             #info-bar {
+                opacity: 0;
                 -webkit-animation: info-bar-animate 0.5s ease-in 0s 1 forwards;
             }
+            // .apb {
+            //     height: 500px;
+            //     width: 500px;
+            // }
             #control-ring-container {
                 -webkit-animation:  control-ring-container-animate 0.5s ease-in 0s forwards;
             }
@@ -149,14 +165,16 @@ body {
 }
 
 @-webkit-keyframes info-bar-animate {
-    0% {display: block; opacity: 0;}
-    100% {top: -206%; opacity: 1;}
+    0% {opacity: 0;}
+    100% {opacity: 1; top: 0px;}
 }
 
 @-webkit-keyframes control-ring-container-animate {
     0% {display: block; opacity: 0;}
     100% {
         opacity: 1;
+        left: 170px;
+        top: 200px;
     }
 }
 
@@ -168,7 +186,7 @@ body {
 @-webkit-keyframes mask-animate  {
     100% {
         left: -250%;
-        top: -300%;
+        top: -350%;
     }
 }
 @-webkit-keyframes history-animate {
