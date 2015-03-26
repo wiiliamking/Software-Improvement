@@ -22,6 +22,18 @@ body {
           background-color: grey;
           width: 150px;
           height: 150px; }
+          body #at-plus-container #button #info-bar .info #sum {
+            text-align: center;
+            position: absolute;
+            left: 47px;
+            top: -10px;
+            font-size: 40pt;
+            color: #079E6E;
+            font-weight: bold; }
+          body #at-plus-container #button #info-bar .info .disappear {
+            display: none; }
+          body #at-plus-container #button #info-bar .info ul {
+            display: none; }
           body #at-plus-container #button #info-bar .info li {
             position: absolute;
             left: 45%;
@@ -53,6 +65,8 @@ body {
             top: 108px; }
           body #at-plus-container #button #info-bar .info .mine {
             color: #079E6E; }
+      body #at-plus-container #button #info-bar.clickable {
+        cursor: pointer; }
       body #at-plus-container #button #control-ring-container {
         opacity: 0;
         position: absolute;
@@ -67,7 +81,8 @@ body {
           height: 50px;
           left: 40%;
           top: 27%;
-          position: absolute; }
+          position: absolute;
+          color: #079E6E; }
           body #at-plus-container #button #control-ring-container ul li span {
             left: 20px;
             top: 15px;
@@ -75,7 +90,7 @@ body {
           body #at-plus-container #button #control-ring-container ul li img {
             margin: 25% 20% 20% 25%; }
           body #at-plus-container #button #control-ring-container ul li .unread {
-            display: block;
+            color: white;
             text-align: center;
             z-index: 3;
             position: absolute;
@@ -87,6 +102,16 @@ body {
             width: 15px;
             font-size: 12px;
             background-color: red; }
+          body #at-plus-container #button #control-ring-container ul li .show {
+            display: block; }
+          body #at-plus-container #button #control-ring-container ul li .hide {
+            display: none; }
+        body #at-plus-container #button #control-ring-container ul li.unable {
+          background-color: grey;
+          cursor: auto; }
+        body #at-plus-container #button #control-ring-container ul li.completed {
+          background-color: grey;
+          cursor: auto; }
       body #at-plus-container #button .apb {
         border-radius: 50%;
         position: absolute;
@@ -127,40 +152,48 @@ body {
 @-webkit-keyframes info-bar-animate {
   0% {
     opacity: 0; }
+
   100% {
     opacity: 1;
     top: 0px; } }
+
 @-webkit-keyframes control-ring-container-animate {
   0% {
     display: block;
     opacity: 0; }
+
   100% {
     opacity: 1;
     left: 170px;
     top: 200px; } }
+
 @-webkit-keyframes apb-animate {
   0% {
     background-color: #303f9f; }
+
   100% {
     background-color: #303f9f; } }
+
 @-webkit-keyframes mask-animate {
   100% {
     left: -250%;
     top: -350%; } }
+
 @-webkit-keyframes history-animate {
   100% {
     left: -330%; } }
+
 @-webkit-keyframes message-animate {
   100% {
     left: -270%;
     top: 500%; } }
+
 @-webkit-keyframes setting-animate {
   100% {
     left: -100%;
     top: 800%; } }
+
 @-webkit-keyframes sign-animate {
   100% {
     left: 120%;
     top: 900%; } }
-
-/*# sourceMappingURL=index.css.map */
