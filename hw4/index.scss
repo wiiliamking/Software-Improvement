@@ -5,7 +5,6 @@ body {
         #button {
             position: relative;
             left: 400px;
-            top: 400px;
             ul {
                 list-style: none;
                 li {
@@ -73,6 +72,9 @@ body {
                 top: 220px;
                 left: 220px;
                 ul {
+                    li:hover {
+                        cursor: pointer;
+                    }
                     li {
                         background-color: rgba(48, 63, 159, 1);
                         border-radius: 50%;
@@ -197,7 +199,7 @@ body {
 @-webkit-keyframes message-animate {
     100% {
         left: -270%;
-        top: 520%;
+        top: 500%;
     }
 }
 @-webkit-keyframes setting-animate {

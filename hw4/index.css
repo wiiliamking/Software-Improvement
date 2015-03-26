@@ -4,8 +4,7 @@ body {
     position: relative; }
     body #at-plus-container #button {
       position: relative;
-      left: 400px;
-      top: 400px; }
+      left: 400px; }
       body #at-plus-container #button ul {
         list-style: none; }
         body #at-plus-container #button ul li {
@@ -59,6 +58,8 @@ body {
         position: absolute;
         top: 220px;
         left: 220px; }
+        body #at-plus-container #button #control-ring-container ul li:hover {
+          cursor: pointer; }
         body #at-plus-container #button #control-ring-container ul li {
           background-color: #303f9f;
           border-radius: 50%;
@@ -152,7 +153,7 @@ body {
 @-webkit-keyframes message-animate {
   100% {
     left: -270%;
-    top: 520%; } }
+    top: 500%; } }
 @-webkit-keyframes setting-animate {
   100% {
     left: -100%;
