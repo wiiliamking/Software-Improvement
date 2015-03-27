@@ -102,6 +102,15 @@ body {
             width: 15px;
             font-size: 12px;
             background-color: red; }
+          body #at-plus-container #button #control-ring-container ul li .message {
+            width: 100px;
+            border-radius: 5%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            top: -20px;
+            left: -39px;
+            opacity: 0.7; }
           body #at-plus-container #button #control-ring-container ul li .show {
             display: block; }
           body #at-plus-container #button #control-ring-container ul li .hide {
@@ -140,7 +149,7 @@ body {
         -webkit-animation: mask-animate 0.5s ease-in 0s forwards; }
       body #at-plus-container #button:hover .history {
         -webkit-animation: history-animate 0.5s ease-in 0s forwards; }
-      body #at-plus-container #button:hover .message {
+      body #at-plus-container #button:hover .message2 {
         -webkit-animation: message-animate 0.5s ease-in 0s forwards; }
       body #at-plus-container #button:hover .setting {
         -webkit-animation: setting-animate 0.5s ease-in 0s forwards; }
