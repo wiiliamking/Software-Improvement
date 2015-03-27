@@ -30,6 +30,12 @@ body {
             font-size: 40pt;
             color: #079E6E;
             font-weight: bold; }
+          body #at-plus-container #button #info-bar .info #lastMessage {
+            background-color: black;
+            color: white;
+            opacity: 0.6;
+            top: 30px;
+            padding: 5px 5px 5px 5px; }
           body #at-plus-container #button #info-bar .info .disappear {
             display: none; }
           body #at-plus-container #button #info-bar .info ul {
@@ -161,48 +167,40 @@ body {
 @-webkit-keyframes info-bar-animate {
   0% {
     opacity: 0; }
-
   100% {
     opacity: 1;
     top: 0px; } }
-
 @-webkit-keyframes control-ring-container-animate {
   0% {
     display: block;
     opacity: 0; }
-
   100% {
     opacity: 1;
     left: 170px;
     top: 200px; } }
-
 @-webkit-keyframes apb-animate {
   0% {
     background-color: #303f9f; }
-
   100% {
     background-color: #303f9f; } }
-
 @-webkit-keyframes mask-animate {
   100% {
     left: -250%;
     top: -350%; } }
-
 @-webkit-keyframes history-animate {
   100% {
     left: -330%; } }
-
 @-webkit-keyframes message-animate {
   100% {
     left: -270%;
     top: 500%; } }
-
 @-webkit-keyframes setting-animate {
   100% {
     left: -100%;
     top: 800%; } }
-
 @-webkit-keyframes sign-animate {
   100% {
     left: 120%;
     top: 900%; } }
+
+/*# sourceMappingURL=index.css.map */

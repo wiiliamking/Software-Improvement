@@ -1,21 +1,3 @@
-var Promise = function() {
-    var success = null;
-}
-
-Promise.prototype.then = function(successHandler, failhandler) {
-    if (success == null) return;
-    if (success) successHandler();
-    else failhandler();
-}
-
-Promise.prototype.resovle = function() {
-    success = 1;
-}
-
-Promise.prototype.reject = function() {
-    success = 0;
-}
-
 function init() {
 	var buttons = document.getElementsByClassName("button");
     for (var i = 0; i < buttons.length; ++i) {
@@ -41,10 +23,9 @@ function aHandler(message, currentSum, errHandler) {
     var button = document.getElementsByClassName("button")[0];
     var xmlHttp = new XMLHttpRequest();
     if (xmlHttp == null) alert('XMLHTTP not supported.');
-    var promise = new Promise();
     xmlHttp.onreadystatechange = function (button, errHandler) {
         return function() {
-            if (xmlHttp.readyState == 4) {
+            if (xmlHttp.readyState == 4 && button.getElementsByClassName("unread")[0].classList.contains("show")) {
                 if (xmlHttp.status == 200) {
                     button.classList.add("completed");
                     var result = [];
@@ -82,10 +63,9 @@ function bHandler(message, currentSum, errHandler) {
     var button = document.getElementsByClassName("button")[1];
     var xmlHttp = new XMLHttpRequest();
     if (xmlHttp == null) alert('XMLHTTP not supported.');
-    var promise = new Promise();
     xmlHttp.onreadystatechange = function (button, errHandler) {
         return function() {
-            if (xmlHttp.readyState == 4) {
+            if (xmlHttp.readyState == 4 && button.getElementsByClassName("unread")[0].classList.contains("show")) {
                 if (xmlHttp.status == 200) {
                     button.classList.add("completed");
                     var result = [];
@@ -123,10 +103,9 @@ function cHandler(message, currentSum, errHandler) {
     var button = document.getElementsByClassName("button")[2];
     var xmlHttp = new XMLHttpRequest();
     if (xmlHttp == null) alert('XMLHTTP not supported.');
-    var promise = new Promise();
     xmlHttp.onreadystatechange = function (button, errHandler) {
         return function() {
-            if (xmlHttp.readyState == 4) {
+            if (xmlHttp.readyState == 4 && button.getElementsByClassName("unread")[0].classList.contains("show")) {
                 if (xmlHttp.status == 200) {
                     button.classList.add("completed");
                     var result = [];
@@ -164,10 +143,9 @@ function dHandler(message, currentSum, errHandler) {
     var button = document.getElementsByClassName("button")[3];
     var xmlHttp = new XMLHttpRequest();
     if (xmlHttp == null) alert('XMLHTTP not supported.');
-    var promise = new Promise();
     xmlHttp.onreadystatechange = function (button, errHandler) {
         return function() {
-            if (xmlHttp.readyState == 4) {
+            if (xmlHttp.readyState == 4 && button.getElementsByClassName("unread")[0].classList.contains("show")) {
                 if (xmlHttp.status == 200) {
                     button.classList.add("completed");
                     var result = [];
@@ -205,10 +183,9 @@ function eHandler(message, currentSum, errHandler) {
     var button = document.getElementsByClassName("button")[4];
     var xmlHttp = new XMLHttpRequest();
     if (xmlHttp == null) alert('XMLHTTP not supported.');
-    var promise = new Promise();
     xmlHttp.onreadystatechange = function (button, errHandler) {
         return function() {
-            if (xmlHttp.readyState == 4) {
+            if (xmlHttp.readyState == 4 && button.getElementsByClassName("unread")[0].classList.contains("show")) {
                 if (xmlHttp.status == 200) {
                     button.classList.add("completed");
                     var result = [];

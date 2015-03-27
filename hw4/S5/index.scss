@@ -34,6 +34,13 @@ body {
                         color: #079E6E;
                         font-weight: bold;
                     }
+                    #lastMessage {
+                        background-color: black;
+                        color: white;
+                        opacity: 0.6;
+                        top: 30px;
+                        padding: 5px 5px 5px 5px;
+                    }
                     .disappear {
                         display: none;
                     }
