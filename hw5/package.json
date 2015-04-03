@@ -1,0 +1,8 @@
+{
+  "name": "hw5",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-livescript": "^0.5.4"
+  }
+}
