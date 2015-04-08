@@ -26,7 +26,7 @@ function getNumber(button) {
     if (xmlHttp == null) alert('XMLHTTP not supported.');
     xmlHttp.onreadystatechange = function (button) {
         return function() {
-            if (xmlHttp.readyState == 4) {
+            if (xmlHttp.readyState == 4 && button.getElementsByClassName("unread")[0].classList.contains("show")) {
             	if (xmlHttp.status == 200) {
             		button.getElementsByClassName("unread")[0].innerHTML = xmlHttp.responseText;
                     adder(parseInt(xmlHttp.responseText));
