@@ -3,7 +3,7 @@ extends layout
 block content
 	p The courses are below:
 	div#courses
-		if !courses
+		if courses.length == 0
 			| There is no courses
 			if user.character == 'teacher'
 				a(href='courses/create') Create one?
@@ -11,4 +11,4 @@ block content
 			ul
 				each course in courses
 					li
-						a(href="./courses/#{course._id}") #{course.name} 
+						a(href="/courses/#{course._id}") #{course.name} 

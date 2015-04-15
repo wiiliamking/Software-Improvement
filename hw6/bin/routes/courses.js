@@ -137,5 +137,4 @@
       }
     });
   });
-  router.use('/:id/homeworks', homeworks);
 }).call(this);

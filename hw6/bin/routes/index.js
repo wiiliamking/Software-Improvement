@@ -55,6 +55,7 @@
       req.logout();
       res.redirect('/');
     });
-    return router.use('/courses', courses);
+    router.use('/courses', courses);
+    return router.use('/homeworks', homeworks);
   };
 }).call(this);

@@ -86,4 +86,3 @@ router.get '/:id/delete', is-authenticated, is-teacher, (req, res)!->
 			console.log 'Successed to remove a course!'
 			res.redirect '.../'
 
-router.use '/:id/homeworks', homeworks

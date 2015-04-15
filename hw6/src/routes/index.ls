@@ -36,4 +36,4 @@ module.exports = (passport)->
 		res.redirect '/'
 
 	router.use '/courses', courses
-
+	router.use '/homeworks', homeworks

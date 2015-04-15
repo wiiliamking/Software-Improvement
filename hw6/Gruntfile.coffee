@@ -109,6 +109,8 @@ module.exports = (grunt) ->
         tasks: []
         options:
           livereload: true
+          server: path.resolve('bin/server.js')
+          port: 5000
 
       grunt:
         files: ['Gruntfile.coffee']
