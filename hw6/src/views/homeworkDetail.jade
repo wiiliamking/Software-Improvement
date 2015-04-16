@@ -6,11 +6,14 @@ block content
 			p Hello, Teacher #{user.name}!
 			p The students' homeworks are below:
 			ul
-				-var i = 0
-				each content in contents
-					-var i = i + 1
-					li
-						a(href="/homeworks/content/#{content._id}") student #{i}
+				if contents.length != 0
+					-var i = 0
+					each content in contents
+						-var i = i + 1
+						li
+							a(href="/homeworks/content/#{content._id}") student #{i}
+				else
+					p No student has submit the homework.
 
 		if user.character == 'student'
 			p Hello, Student #{user.name}!
@@ -18,5 +21,5 @@ block content
 				p Your homework is here,
 					a(href="/homeworks/write/#{content._id}") Change it?
 			else
-				p You haven't write you homework,
+				p You haven't write your homework,
 					a(href='/homeworks/write/no?homework=#{homework._id}') write now?

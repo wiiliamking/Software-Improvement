@@ -30,13 +30,16 @@ router.get '/', is-authenticated, (req, res)!->
 
 router.get '/detail/:homeworkId', is-authenticated, (req, res)!->
 	user = req.user
-	homework = Homework.find-one {id: req.params.homeworkId}
-	if user.character is 'teacher'
-		Content.find {course: homework-id}, (err, contents)!->
-			res.render 'homeworkDetail', contents: contents, user: user, homework: homework
-	else
-		Content.find {course: homework-id, writer-id, user._id}, (err, content)!->
-			res.render 'homeworkDetail', conetent: content, user: user, homework: homework
+	Homework.find-one {_id: req.params.homeworkId}, (err, homework)!->
+		if err
+			console.log('Failed to find the homework')
+		if user.character is 'teacher'
+			Content.find {course: homework._id}, (err, contents)!->
+				if err then console.log('No contents')
+				res.render 'homeworkDetail', contents: contents, user: user, homework: homework
+		else
+			Content.find {course: homework._id, writer-id: user._id}, (err, content)!->
+				res.render 'homeworkDetail', conetent: content, user: user, homework: homework
 
 router.get '/create', is-authenticated, is-teacher, (req, res)->
 	course-id = req.query.course-id
@@ -61,7 +64,7 @@ router.post '/create/:courseId', is-authenticated, is-teacher, (req, res)->
 router.get 'content/:contentId/', is-authenticated, is-teacher, (req, res)->
 	Content.find-one {name: req.params.homework-id} (err, homework)!->
 		if not content
-			res.write 'The homework doesn't exist!'
+			res.write 'The homework doesn\'t exist!'
 			res.end!
 		else
 			res.render 'homeworkContent', content:homework, user:user
@@ -71,16 +74,16 @@ router.get "/:homeworkId/check", is-authenticated, is-teacher, (req, res)->
 		res.render 'homeworkContentList', contents:contents
 
 router.get "/:contentId/enscore", is-authenticated, is-teacher, (req, res)->
-	Content.find-one {id: req.params.content-id}, (err, content)
+	Content.find-one {id: req.params.content-id}, (err, content)!->
 	res.render 'enscoreHomework', content:content
 
 router.post "/:contentId/enscore", is-authenticated, is-teacher, (req, res)->
 	content = Content.find-one {id: req.params.homework-id}
 
-router.post "edit/:homeworkId/", is-authenticated, is-teacher, (req, res)->
+router.post "/edit/:homeworkId/", is-authenticated, is-teacher, (req, res)->
 	Homework.find-one {id: homeworkId}, (err, homework)!->
 		if not homework
-			res.write 'The homework doesn't exist!'
+			res.write 'The homework doesn\'t exist!'
 			res.end!
 		else
 			homework.deadline = req.param 'deadline'
@@ -88,18 +91,23 @@ router.post "edit/:homeworkId/", is-authenticated, is-teacher, (req, res)->
 			homework.name = req.param 'name'
 			homeworks.save!
 
-router.get 'write/:contentId/', is-authenticated, is-student, (req, res)->
+router.get "/write/:contentId", is-authenticated, is-student, (req, res)->
 	Content.find-one {writer-id: req.user.id, _id: req.params.content-id}, (err, content)!->
 		if not content
 			content = new Content {
-				homework-id: req.query.homeworkId,
+				homework-id: req.query.homework,
 				content: '',
 				writer-id: 'req.user.id'
 			}
+			console.log 'A new content'
 			content.save!
-		res.render 'writeHomework', {user=req.user, course-name=course.name, content=content}
 
-router.post 'write/:contentId/', is-authenticated, is-student, (req, res)->
+		Homework.find-one {_id: content.homework-id}, (err, homework)!->
+			console.log homework
+			Course.find-one {_id: homework.course-id}, (err, course)!->
+				res.render 'writeHomework', user:req.user, course-name:course.name, content:content
+
+router.post "/write/:contentId/", is-authenticated, is-student, (req, res)->
 	Content.find-one {writer-id: req.user.id, homework-id: req.params.homework-id}, (err, content)!->
 		if not content
 			res.write 'Error'
@@ -107,4 +115,5 @@ router.post 'write/:contentId/', is-authenticated, is-student, (req, res)->
 		else
 			content.content = req.params 'content'
 			content.save!
+			res.redirect('/homeworks')
 

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	div.container
+		form#content(action='/homeworks/write/#{homework._id}', method="POST")
+			textarea(name='content', form="content", type="text" value="#{homework.content}")
+			button.btn(type="submit") submit
